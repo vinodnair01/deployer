@@ -23,14 +23,13 @@ set('allow_anonymous_stats', false);
 // Hosts
 
 host('54.71.222.16')
-	->user('deploy')
+    ->user('deploy')
     ->port(22)
-    ->configFile('~/.ssh/config')
     ->identityFile('~/.ssh/id_rsa')
     ->forwardAgent(true)
     ->multiplexing(true)
     ->addSshOption('UserKnownHostsFile', '/dev/null')
-    ->addSshOption('StrictHostKeyChecking', 'no');
+    ->addSshOption('StrictHostKeyChecking', 'no')
     ->stage('staging')
     ->set('deploy_path', '/home/deploy/public_html');
 
@@ -56,4 +55,3 @@ task('deploy', [
 
 // [Optional] If deploy fails automatically unlock.
 after('deploy:failed', 'deploy:unlock');
-
