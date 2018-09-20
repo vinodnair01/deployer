@@ -1,3 +1,3 @@
-#ading#Test file
+#ing#Test file
 <?phpinfo();
 ?>
